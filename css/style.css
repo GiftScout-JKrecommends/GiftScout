@@ -347,3 +347,152 @@ margin-bottom:15px;
 color:#ddd;
 
 }
+/* ===========================
+Gift Recommendation Form
+=========================== */
+
+#gift-form{
+    max-width:900px;
+    margin:auto;
+}
+
+#giftForm{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    margin-top:40px;
+}
+
+#giftForm input,
+#giftForm textarea{
+    padding:18px;
+    border:none;
+    border-radius:16px;
+    background:#ffffff10;
+    color:#fff;
+    font-size:16px;
+    outline:none;
+    border:1px solid rgba(255,255,255,.08);
+}
+
+#giftForm textarea{
+    min-height:150px;
+    resize:vertical;
+}
+
+#giftForm button{
+    background:#ff7a00;
+    color:#fff;
+    border:none;
+    padding:18px;
+    border-radius:50px;
+    font-size:18px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+#giftForm button:hover{
+    transform:translateY(-4px);
+    box-shadow:0 15px 30px rgba(255,122,0,.35);
+}
+
+/* ===========================
+Contact
+=========================== */
+
+.contact{
+    text-align:center;
+}
+
+.contact p{
+    margin:12px 0;
+    font-size:18px;
+}
+
+/* ===========================
+Footer
+=========================== */
+
+footer{
+    background:#091914;
+    text-align:center;
+    padding:50px 20px;
+}
+
+footer h3{
+    color:#ff7a00;
+    font-size:34px;
+    margin-bottom:10px;
+}
+
+footer p{
+    color:#cfcfcf;
+    margin:8px 0;
+}
+
+/* ===========================
+Responsive
+=========================== */
+
+@media(max-width:900px){
+
+.navbar{
+    flex-direction:column;
+    gap:20px;
+}
+
+.navbar ul{
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:18px;
+}
+
+.hero h1{
+    font-size:42px;
+}
+
+.hero p{
+    font-size:18px;
+}
+
+.hero-buttons{
+    flex-direction:column;
+}
+
+section{
+    padding:70px 20px;
+}
+
+section h2{
+    font-size:34px;
+}
+
+}
+
+@media(max-width:600px){
+
+.hero{
+    padding-top:150px;
+}
+
+.hero h1{
+    font-size:34px;
+}
+
+.logo img{
+    height:52px;
+}
+
+.btn,
+.primary-btn,
+.secondary-btn{
+    width:100%;
+    text-align:center;
+}
+
+.cards{
+    grid-template-columns:1fr;
+}
+
+}
