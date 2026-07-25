@@ -1,78 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>JohnyKames - Official Website</title>
-<style>
-  body { font-family: Arial, sans-serif; background:#f5f7ff; margin:0; padding:0; color:#001F54;}
-  header { padding:30px; text-align:center; background:white; border-bottom:2px solid #D9E2FF;}
-  h1 { margin:0; font-size:2.5rem; color:#0037ff; }
-  .section { padding:40px 20px; max-width:1000px; margin:auto; }
-  iframe { border-radius:12px; }
-  .video-grid { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
-  .video-card { width:300px; text-align:center; }
-  footer { padding:20px; text-align:center; background:#e8eeff; margin-top:40px; }
-  a { color:#0037ff; text-decoration:none; font-weight:bold; }
-</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GiftScout | Find the Perfect Gift</title>
+
+<meta name="description" content="GiftScout helps you discover the perfect gift for every occasion through personalized recommendations.">
+
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
+
 <body>
 
 <header>
-  <h1>JohnyKames</h1>
-  <p>Official Music Channel</p>
+
+<nav class="navbar">
+
+<div class="logo">
+
+<img src="images/logo.png" alt="GiftScout Logo">
+
+</div>
+
+<ul>
+
+<li><a href="#">Home</a></li>
+
+<li><a href="about.html">About</a></li>
+
+<li><a href="services.html">Services</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+
+</ul>
+
+<a class="btn" href="#gift-form">
+
+Get Recommendations
+
+</a>
+
+</nav>
+
 </header>
 
-<div class="section">
-  <h2>Featured Video</h2>
-  <iframe width="100%" height="400"
-    src="https://www.youtube.com/embed/MwMXmqx99HU?autoplay=1&loop=1&playlist=MwMXmqx99HU"
-    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen></iframe>
+<section class="hero">
+
+<div class="hero-content">
+
+<h4>Presented by JK Recommends</h4>
+
+<h1>Find the Perfect Gift 🎁</h1>
+
+<p>
+
+Personalized gift recommendations for every occasion.
+
+Birthdays • Weddings • Anniversaries • Festivals • Corporate Gifts
+
+</p>
+
+<div class="hero-buttons">
+
+<a class="primary-btn" href="#gift-form">
+
+Find My Gift
+
+</a>
+
+<a class="secondary-btn"
+
+href="https://wa.me/917470713973">
+
+Chat on WhatsApp
+
+</a>
+
 </div>
 
-<div class="section">
-  <h2>Support Me</h2>
-  <p>If you like my music, support me with any amount :heart:</p>
-  <form>
-    <script src="https://checkout.razorpay.com/v1/payment-button.js"
-      data-payment_button_id="pl_Rfw8VAnhVOwCX1" async> </script>
-  </form>
 </div>
 
-<div class="section">
-  <h2>Latest Uploads</h2>
-  <div class="video-grid">
+</section>
 
-    <div class="video-card">
-      <iframe width="100%" height="170"
-        src="https://www.youtube.com/embed/bXtkiDGVmUE"
-        allowfullscreen></iframe>
-      <p>Latest Video 1</p>
-    </div>
+<section class="why">
 
-    <div class="video-card">
-      <iframe width="100%" height="170"
-        src="https://www.youtube.com/embed/h7kGbIzV-_4"
-        allowfullscreen></iframe>
-      <p>Latest Video 2</p>
-    </div>
+<h2>Why GiftScout?</h2>
 
-    <div class="video-card">
-      <iframe width="100%" height="170"
-        src="https://www.youtube.com/embed/ZB9U2avH5uA"
-        allowfullscreen></iframe>
-      <p>Latest Video 3</p>
-    </div>
+<p>
 
-  </div>
+Finding the perfect gift shouldn't be stressful.
+
+Tell us who you're gifting, the occasion, budget and interests.
+
+We'll curate thoughtful gift ideas just for you.
+
+</p>
+
+</section>
+
+<section class="steps">
+
+<h2>How It Works</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>1</h3>
+
+<p>Who is the gift for?</p>
+
 </div>
+
+<div class="card">
+
+<h3>2</h3>
+
+<p>Occasion</p>
+
+</div>
+
+<div class="card">
+
+<h3>3</h3>
+
+<p>Budget</p>
+
+</div>
+
+<div class="card">
+
+<h3>4</h3>
+
+<p>Interests</p>
+
+</div>
+
+<div class="card">
+
+<h3>5</h3>
+
+<p>Receive Recommendations</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="gift-form">
+
+<h2>Get Personalized Recommendations</h2>
+
+<form id="giftForm">
+
+<input type="text" placeholder="Your Name" required>
+
+<input type="text" placeholder="Gift For" required>
+
+<input type="text" placeholder="Occasion" required>
+
+<input type="text" placeholder="Budget" required>
+
+<textarea placeholder="Interests"></textarea>
+
+<input type="date">
+
+<button type="submit">
+
+Find My Gift
+
+</button>
+
+</form>
+
+</section>
+
+<section class="contact">
+
+<h2>Contact</h2>
+
+<p>
+
+WhatsApp: +91 7470713973
+
+</p>
+
+<p>
+
+Email:
+
+john.ehoshua@zohomail.in
+
+</p>
+
+<p>
+
+Instagram:
+
+@johny_the_jaded
+
+</p>
+
+</section>
 
 <footer>
-  <p>Follow me:</p>
-  <a href="https://www.youtube.com/@johnykames" target="_blank">YouTube</a> |
-  <a href="https://www.instagram.com/johny_the_jaded" target="_blank">Instagram</a>
+
+<h3>GiftScout</h3>
+
+<p>Presented by JK Recommends</p>
+
+<p>Find the Perfect Gift 🎁</p>
+
 </footer>
 
+<script src="js/script.js"></script>
+
 </body>
+
 </html>
