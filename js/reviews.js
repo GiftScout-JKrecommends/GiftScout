@@ -3,84 +3,94 @@ import { db } from "./firebase-config.js";
 import {
 collection,
 addDoc,
-query,
-where,
 getDocs,
 serverTimestamp
 
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-const form=document.getElementById("reviewForm");
-const reviewsContainer=document.getElementById("reviewsContainer");
+const form = document.getElementById("reviewForm");
+const reviewsContainer = document.getElementById("reviewsContainer");
 
-async function loadReviews(){
+const averageRating = document.getElementById("averageRating");
+const totalReviews = document.getElementById("totalReviews");
 
-reviewsContainer.innerHTML="Loading reviews...";
+async function loadReviews() {
 
-const snapshot = await getDocs(collection(db,"reviews"));
+    reviewsContainer.innerHTML = "";
 
-reviewsContainer.innerHTML="";
+    const snapshot = await getDocs(collection(db, "reviews"));
 
-if(snapshot.empty){
+    let total = 0;
+    let count = 0;
 
-reviewsContainer.innerHTML="<p>No reviews yet.</p>";
+    snapshot.forEach((doc) => {
 
-return;
+        const r = doc.data();
 
-}
+        if (!r.approved) return;
 
-snapshot.forEach((doc)=>{
+        total += Number(r.rating);
+        count++;
 
-const r=doc.data();
+        reviewsContainer.innerHTML += `
+        <div class="review-card">
 
-if (!r.approved) return;
+            <h3>${r.name} <span style="color:#ff8800;">✔ Verified Customer</span></h3>
 
-reviewsContainer.innerHTML+=`
+            <small>${r.occasion}</small>
 
-<div class="review-card">
+            <p style="font-size:22px">${"⭐".repeat(Number(r.rating))}</p>
 
-<h3>${r.name}</h3>
+            <p>${r.review}</p>
 
-<p>${"⭐".repeat(r.rating)}</p>
+        </div>
+        `;
 
-<small>${r.occasion}</small>
+    });
 
-<p>${r.review}</p>
+    if (count === 0) {
 
-</div>
+        reviewsContainer.innerHTML = "<p>No reviews yet.</p>";
 
-`;
+        averageRating.innerHTML = "⭐ 0.0";
 
-});
+        totalReviews.innerHTML = "0";
+
+        return;
+
+    }
+
+    averageRating.innerHTML =
+        "⭐ " + (total / count).toFixed(1);
+
+    totalReviews.innerHTML = count;
 
 }
 
 loadReviews();
 
-form.addEventListener("submit",async(e)=>{
+form.addEventListener("submit", async (e) => {
 
-e.preventDefault();
+    e.preventDefault();
 
-await addDoc(collection(db,"reviews"),{
+    await addDoc(collection(db, "reviews"), {
 
-name:document.getElementById("name").value,
+        name: document.getElementById("name").value,
 
-occasion:document.getElementById("occasion").value,
+        occasion: document.getElementById("occasion").value,
 
-review:document.getElementById("review").value,
+        review: document.getElementById("review").value,
 
-rating:Number(document.querySelector('input[name="rating"]:checked').value),
+        rating: Number(document.querySelector('input[name="rating"]:checked').value),
 
-approved:false,
+        approved: false,
 
-createdAt:serverTimestamp()
+        createdAt: serverTimestamp()
 
-});
+    });
 
-alert("🎉 Thank you! Your review has been submitted.");
+    alert("🎉 Thank you! Your review has been submitted successfully. It will appear after approval by Team GiftScout.");
 
-form.reset();
-
-loadReviews();
+    form.reset();
 
 });
