@@ -17,12 +17,7 @@ async function loadReviews(){
 
 reviewsContainer.innerHTML="Loading reviews...";
 
-const q=query(
-collection(db,"reviews"),
-where("approved","==",true)
-);
-
-const snapshot=await getDocs(q);
+const snapshot = await getDocs(collection(db,"reviews"));
 
 reviewsContainer.innerHTML="";
 
@@ -37,6 +32,8 @@ return;
 snapshot.forEach((doc)=>{
 
 const r=doc.data();
+
+if (!r.approved) return;
 
 reviewsContainer.innerHTML+=`
 
