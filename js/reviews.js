@@ -5,31 +5,26 @@ collection,
 addDoc,
 query,
 where,
-orderBy,
 getDocs,
 serverTimestamp
 
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const form=document.getElementById("reviewForm");
-
 const reviewsContainer=document.getElementById("reviewsContainer");
 
 async function loadReviews(){
 
-reviewsContainer.innerHTML="";
+reviewsContainer.innerHTML="Loading reviews...";
 
 const q=query(
-
 collection(db,"reviews"),
-
-where("approved","==",true),
-
-orderBy("createdAt","desc")
-
+where("approved","==",true)
 );
 
 const snapshot=await getDocs(q);
+
+reviewsContainer.innerHTML="";
 
 if(snapshot.empty){
 
@@ -49,7 +44,7 @@ reviewsContainer.innerHTML+=`
 
 <h3>${r.name}</h3>
 
-<p>⭐⭐⭐⭐⭐".slice(0,r.rating)</p>
+<p>${"⭐".repeat(r.rating)}</p>
 
 <small>${r.occasion}</small>
 
@@ -85,8 +80,10 @@ createdAt:serverTimestamp()
 
 });
 
-alert("🎉 Thank you! Your review has been submitted and will be visible after approval.");
+alert("🎉 Thank you! Your review has been submitted.");
 
 form.reset();
+
+loadReviews();
 
 });
