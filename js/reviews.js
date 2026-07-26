@@ -1,36 +1,83 @@
 import { db } from "./firebase-config.js";
 
 import {
-addDoc,
 collection,
+addDoc,
+query,
+where,
+orderBy,
+getDocs,
 serverTimestamp
+
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-const form = document.getElementById("reviewForm");
+const form=document.getElementById("reviewForm");
 
-form.addEventListener("submit", async (e)=>{
+const reviewsContainer=document.getElementById("reviewsContainer");
+
+async function loadReviews(){
+
+reviewsContainer.innerHTML="";
+
+const q=query(
+
+collection(db,"reviews"),
+
+where("approved","==",true),
+
+orderBy("createdAt","desc")
+
+);
+
+const snapshot=await getDocs(q);
+
+if(snapshot.empty){
+
+reviewsContainer.innerHTML="<p>No reviews yet.</p>";
+
+return;
+
+}
+
+snapshot.forEach((doc)=>{
+
+const r=doc.data();
+
+reviewsContainer.innerHTML+=`
+
+<div class="review-card">
+
+<h3>${r.name}</h3>
+
+<p>⭐⭐⭐⭐⭐".slice(0,r.rating)</p>
+
+<small>${r.occasion}</small>
+
+<p>${r.review}</p>
+
+</div>
+
+`;
+
+});
+
+}
+
+loadReviews();
+
+form.addEventListener("submit",async(e)=>{
 
 e.preventDefault();
 
-const name = document.getElementById("name").value;
-
-const occasion = document.getElementById("occasion").value;
-
-const review = document.getElementById("review").value;
-
-const rating = document.querySelector('input[name="rating"]:checked').value;
-
-try{
-
 await addDoc(collection(db,"reviews"),{
 
-name:name,
+name:document.getElementById("name").value,
 
-occasion:occasion,
+occasion:document.getElementById("occasion").value,
 
-review:review,
+review:document.getElementById("review").value,
 
-rating:Number(rating),
+rating:Number(document.querySelector('input[name="rating"]:checked').value),
 
 approved:false,
 
@@ -38,16 +85,8 @@ createdAt:serverTimestamp()
 
 });
 
-alert("🎉 Thank you! Your review has been submitted successfully and will appear after approval by Team GiftScout.");
+alert("🎉 Thank you! Your review has been submitted and will be visible after approval.");
 
 form.reset();
-
-}catch(err){
-
-console.error(err);
-
-alert("Something went wrong. Please try again.");
-
-}
 
 });
