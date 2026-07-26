@@ -1,41 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leave a Review | GiftScout</title>
 
-    <link rel="stylesheet" href="css/reviews.css">
+<meta charset="UTF-8">
 
-    <script type="module" src="js/firebase-config.js"></script>
-    <script type="module" src="js/reviews.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GiftScout Reviews</title>
+
+<link rel="stylesheet" href="css/reviews.css">
+
+<script type="module" src="js/reviews.js"></script>
+
 </head>
 
 <body>
 
-<header>
+<header class="hero">
 
-    <img src="images/logo.png" class="logo">
+<img src="images/logo.png" class="logo" alt="GiftScout Logo">
 
-    <h1>Leave a Review</h1>
+<h1>Customer Reviews</h1>
 
-    <p>Help others discover GiftScout by sharing your experience.</p>
+<p>
+Trusted by customers across India for thoughtful, personalized gift recommendations.
+</p>
+
+<div class="stats">
+
+<div class="stat-card">
+
+<h2 id="averageRating">⭐ 5.0</h2>
+
+<span>Average Rating</span>
+
+</div>
+
+<div class="stat-card">
+
+<h2 id="totalReviews">0</h2>
+
+<span>Happy Customers</span>
+
+</div>
+
+<div class="stat-card">
+
+<h2>100%</h2>
+
+<span>Personalized Recommendations</span>
+
+</div>
+
+</div>
 
 </header>
 
 <section class="review-form">
 
-<form id="reviewForm">
+<h2>Leave a Review</h2>
 
-<label>Your Name</label>
+<form id="reviewForm">
 
 <input
 type="text"
 id="name"
-placeholder="Enter your name"
+placeholder="Your Name"
 required>
-
-<label>Occasion</label>
 
 <select id="occasion">
 
@@ -55,45 +87,31 @@ required>
 
 </select>
 
-<label>Rating</label>
-
 <div class="stars">
 
-<input type="radio" name="rating" value="5" checked>⭐⭐⭐⭐⭐
+<label><input type="radio" name="rating" value="5" checked> ⭐⭐⭐⭐⭐</label>
 
-<br>
+<label><input type="radio" name="rating" value="4"> ⭐⭐⭐⭐</label>
 
-<input type="radio" name="rating" value="4">⭐⭐⭐⭐
+<label><input type="radio" name="rating" value="3"> ⭐⭐⭐</label>
 
-<br>
+<label><input type="radio" name="rating" value="2"> ⭐⭐</label>
 
-<input type="radio" name="rating" value="3">⭐⭐⭐
-
-<br>
-
-<input type="radio" name="rating" value="2">⭐⭐
-
-<br>
-
-<input type="radio" name="rating" value="1">⭐
+<label><input type="radio" name="rating" value="1"> ⭐</label>
 
 </div>
 
-<label>Your Review</label>
-
 <textarea
 id="review"
-rows="6"
-placeholder="Tell us about your experience..."
+rows="5"
+placeholder="Share your experience..."
 required></textarea>
 
-<label class="check">
+<label>
 
-<input
-type="checkbox"
-required>
+<input type="checkbox" required>
 
-I agree to display my review publicly after approval.
+I agree to display my review publicly.
 
 </label>
 
@@ -109,11 +127,11 @@ Submit Review
 
 <section class="reviews">
 
-<h2>Customer Reviews</h2>
+<h2>What Our Customers Say ❤️</h2>
 
 <div id="reviewsContainer">
 
-Loading reviews...
+Loading Reviews...
 
 </div>
 
@@ -123,13 +141,12 @@ Loading reviews...
 
 <p>
 
-© 2026 GiftScout |
-
-Presented by JK Recommends
+© 2026 GiftScout • Presented by JK Recommends
 
 </p>
 
 </footer>
 
 </body>
+
 </html>
