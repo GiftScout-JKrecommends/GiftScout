@@ -496,3 +496,44 @@ section h2{
 }
 
 }
+.trust-section{
+padding:80px 20px;
+text-align:center;
+background:#111;
+}
+
+.trust-box{
+max-width:700px;
+margin:auto;
+background:#171717;
+padding:40px;
+border-radius:20px;
+border:1px solid rgba(255,136,0,.25);
+box-shadow:0 12px 30px rgba(255,136,0,.08);
+}
+
+.trust-box h3{
+font-size:42px;
+color:#ff8800;
+margin-bottom:10px;
+}
+
+.trust-box p{
+color:#d0d0d0;
+margin-bottom:25px;
+}
+
+.review-btn{
+display:inline-block;
+padding:14px 28px;
+background:#ff8800;
+color:#fff;
+text-decoration:none;
+border-radius:12px;
+font-weight:bold;
+transition:.3s;
+}
+
+.review-btn:hover{
+background:#ffa126;
+}
