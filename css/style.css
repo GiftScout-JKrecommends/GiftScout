@@ -411,21 +411,22 @@ Contact
 }
 .contact-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:25px;
-    margin-top:50px;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+    max-width:1100px;
+    margin:50px auto;
 }
 
 .contact-card{
     background:#171717;
     border:1px solid rgba(255,136,0,.25);
     border-radius:20px;
-    padding:30px 20px;
-    min-height:320px;
+    padding:35px;
+    min-height:280px;
 
     display:flex;
     flex-direction:column;
-    justify-content:space-between;
+    justify-content:center;
     align-items:center;
 
     text-align:center;
@@ -455,13 +456,15 @@ Contact
 
 .contact-card h3{
     color:#ff8800;
-    margin-bottom:10px;
+    font-size:30px;
+    margin-bottom:20px;
 }
 
 .contact-card p{
     color:#ddd;
-    margin-bottom:20px;
-    word-break:break-word;
+    font-size:18px;
+    line-height:1.7;
+    margin-bottom:25px;
 }
 
 /* ===========================
