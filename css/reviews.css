@@ -254,3 +254,20 @@ margin:30px 15px;
 }
 
 }
+.review-form label{
+display:flex;
+align-items:center;
+gap:10px;
+color:#ddd;
+font-size:15px;
+margin:20px 0;
+cursor:pointer;
+}
+
+.review-form input[type="checkbox"]{
+width:18px;
+height:18px;
+margin:0;
+accent-color:#ff8800;
+cursor:pointer;
+}
