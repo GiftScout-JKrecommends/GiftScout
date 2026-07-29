@@ -745,19 +745,19 @@ Homepage Reviews Slider
         transform:translateX(-50%);
     }
 }
-.back-home-btn{
-    display:inline-block;
-    background:#ff8800;
-    color:#fff !important;
-    text-decoration:none;
-    padding:12px 24px;
-    border-radius:10px;
-    font-weight:600;
-    box-shadow:0 8px 20px rgba(255,136,0,.35);
-    transition:.3s;
+.back-home-container{
+    margin:40px auto 20px;
+    max-width:900px;
+    padding:0 20px;
 }
 
-.back-home-btn:hover{
-    background:#ffaa33;
-    transform:translateY(-2px);
+.back-home-btn{
+    display:inline-block !important;
+    background:#ff8800 !important;
+    color:#fff !important;
+    padding:12px 28px;
+    border-radius:12px;
+    font-weight:600;
+    text-decoration:none;
+    box-shadow:0 8px 20px rgba(255,136,0,.35);
 }
