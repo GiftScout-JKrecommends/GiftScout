@@ -314,6 +314,8 @@ border-radius:24px;
 
 padding:35px;
 
+min-height:220px;
+
 backdrop-filter:blur(18px);
 
 transition:.35s;
@@ -333,13 +335,10 @@ box-shadow:0 20px 40px rgba(0,0,0,.3);
 }
 
 .card h3{
-
-font-size:44px;
-
-color:var(--primary);
-
-margin-bottom:15px;
-
+    font-size:60px;
+    font-weight:800;
+    color:var(--primary);
+    margin-bottom:22px;
 }
 
 .steps .card p{
