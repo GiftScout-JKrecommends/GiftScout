@@ -73,24 +73,36 @@ form.addEventListener("submit", async (e) => {
 
     e.preventDefault();
 
-    await addDoc(collection(db, "reviews"), {
+    try {
 
-        name: document.getElementById("name").value,
+        await addDoc(collection(db, "reviews"), {
 
-        occasion: document.getElementById("occasion").value,
+            name: document.getElementById("name").value,
 
-        review: document.getElementById("review").value,
+            occasion: document.getElementById("occasion").value,
 
-        rating: Number(document.querySelector('input[name="rating"]:checked').value),
+            review: document.getElementById("review").value,
 
-        approved: false,
+            rating: Number(document.querySelector('input[name="rating"]:checked').value),
 
-        createdAt: serverTimestamp()
+            approved: false,
 
-    });
+            createdAt: serverTimestamp()
 
-    alert("🎉 Thank you! Your review has been submitted successfully. It will appear after approval by Team GiftScout.");
+        });
 
-    form.reset();
+        alert("🎉 Thank you! Your review has been submitted successfully.\n\nIt will be published after approval by Team GiftScout.");
+
+        form.reset();
+
+        loadReviews();
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert("❌ Review submission failed.\n\nPlease try again.");
+
+    }
 
 });
