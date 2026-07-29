@@ -440,20 +440,22 @@ Contact
     border-color:#ff8800;
 }
 
-.contact-card .icon{
+.contact-card i{
     font-size:48px;
-    color:#25D366;
     margin-bottom:15px;
 }
 
-.contact-card:nth-child(2) .icon{
+.contact-card:nth-child(1) i{
+    color:#25D366;
+}
+
+.contact-card:nth-child(2) i{
     color:#ff8800;
 }
 
-.contact-card:nth-child(3) .icon{
+.contact-card:nth-child(3) i{
     color:#E4405F;
 }
-
 .contact-card h3{
     color:#ff8800;
     font-size:30px;
