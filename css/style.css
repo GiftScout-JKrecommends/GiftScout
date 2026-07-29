@@ -804,3 +804,9 @@ Homepage Reviews Slider
     text-decoration:none;
     box-shadow:0 8px 20px rgba(255,136,0,.35);
 }
+.steps .card p{
+    color:#fff !important;
+    font-size:24px !important;
+    font-weight:700 !important;
+    line-height:1.5 !important;
+}
