@@ -534,6 +534,17 @@ section h2{
     text-align:center;
 }
 
+.steps .card h3{
+    font-size:56px !important;
+}
+
+.steps .card p{
+    font-size:26px !important;
+    font-weight:700 !important;
+    color:#fff !important;
+    line-height:1.4;
+}
+
 .cards{
     grid-template-columns:1fr;
 }
