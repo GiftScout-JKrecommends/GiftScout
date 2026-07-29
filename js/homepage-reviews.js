@@ -17,7 +17,7 @@ async function loadHomeReviews() {
 
         const r = doc.data();
 
-        if (!r.approved) return;
+        if (!r.approved || Number(r.rating) !== 5) return;
 
         html += `
         <div class="home-review-card">
