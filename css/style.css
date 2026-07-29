@@ -829,16 +829,3 @@ Homepage Reviews Slider
     color:#fff !important;
     line-height:1.5 !important;
 }
-#giftForm input[type="date"]{
-    appearance:auto;
-    -webkit-appearance:auto;
-    color:#fff;
-    background:#ffffff10;
-    color-scheme:dark;
-    width:100%;
-}
-
-#giftForm input[type="date"]::-webkit-calendar-picker-indicator{
-    opacity:1;
-    cursor:pointer;
-}
