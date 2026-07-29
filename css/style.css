@@ -335,7 +335,7 @@ box-shadow:0 20px 40px rgba(0,0,0,.3);
 }
 
 .card h3{
-    font-size:60px;
+    font-size:40px;
     font-weight:800;
     color:var(--primary);
     margin-bottom:22px;
