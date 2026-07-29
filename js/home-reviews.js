@@ -1,31 +1,37 @@
 import { db } from "./firebase-config.js";
 
 import {
-    collection,
-    getDocs
+  collection,
+  getDocs
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 async function loadHomeReviews() {
 
-    const snapshot = await getDocs(collection(db, "reviews"));
+  const rating = document.getElementById("homeRating");
+  const reviewCount = document.getElementById("homeReviewCount");
 
-    let total = 0;
-    let ratingSum = 0;
+  const snapshot = await getDocs(collection(db, "reviews"));
 
-    snapshot.forEach(doc => {
-        const review = doc.data();
+  let totalRating = 0;
+  let count = 0;
 
-        if (review.approved === true) {
-            total++;
-            ratingSum += review.rating;
-        }
-    });
+  snapshot.forEach((doc) => {
+    const review = doc.data();
 
-    if (total > 0) {
-        document.getElementById("homeReviewCount").textContent = total;
-        document.getElementById("homeRating").textContent =
-            (ratingSum / total).toFixed(1);
-    }
+    if (!review.approved) return;
+
+    totalRating += Number(review.rating);
+    count++;
+  });
+
+  if (count === 0) {
+    rating.textContent = "5.0";
+    reviewCount.textContent = "0";
+    return;
+  }
+
+  rating.textContent = (totalRating / count).toFixed(1);
+  reviewCount.textContent = count;
 }
 
 loadHomeReviews();
