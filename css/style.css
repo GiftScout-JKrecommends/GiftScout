@@ -405,33 +405,21 @@ Contact
     text-align:center;
 }
 
-.contact p{
-    margin:12px 0;
-    font-size:18px;
-}
 .contact-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
     gap:30px;
     max-width:1100px;
     margin:50px auto;
-    align-items:stretch;
 }
 
 .contact-card{
     background:#171717;
     border:1px solid rgba(255,136,0,.25);
     border-radius:20px;
-    padding:35px;
-    min-height:280px;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
+    padding:35px 25px;
     text-align:center;
-
-    box-shadow:0 12px 30px rgba(255,136,0,.08);
+    transition:.3s;
 }
 
 .contact-card:hover{
@@ -441,33 +429,29 @@ Contact
 
 .contact-card i{
     font-size:48px;
-    margin-bottom:15px;
+    margin-bottom:18px;
 }
 
-.contact-card:nth-child(1) i{
-    color:#25D366;
-}
+.contact-card:nth-child(1) i{color:#25D366;}
+.contact-card:nth-child(2) i{color:#ff8800;}
+.contact-card:nth-child(3) i{color:#E4405F;}
 
-.contact-card:nth-child(2) i{
-    color:#ff8800;
-}
-
-.contact-card:nth-child(3) i{
-    color:#E4405F;
-}
 .contact-card h3{
     color:#ff8800;
     font-size:30px;
-    margin-bottom:20px;
+    margin-bottom:15px;
 }
 
 .contact-card p{
     color:#ddd;
-    font-size:18px;
-    line-height:1.7;
-    margin-bottom:25px;
+    margin-bottom:20px;
 }
 
+.contact-card .primary-btn{
+    display:inline-block;
+    width:auto;
+    padding:14px 30px;
+}
 /* ===========================
 Footer
 =========================== */
