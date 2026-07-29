@@ -829,3 +829,44 @@ Homepage Reviews Slider
     color:#fff !important;
     line-height:1.5 !important;
 }
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.7);
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.modal-content{
+    background:#111;
+    border:1px solid #ff9800;
+    border-radius:20px;
+    padding:30px;
+    width:90%;
+    max-width:420px;
+    text-align:center;
+    color:#fff;
+}
+
+.modal-content h2{
+    color:#ff9800;
+    margin-bottom:15px;
+}
+
+.modal-content p{
+    margin:10px 0;
+    line-height:1.6;
+}
+
+.modal-content button{
+    margin-top:20px;
+    padding:12px 35px;
+    background:#ff7a00;
+    color:#fff;
+    border:none;
+    border-radius:50px;
+    font-size:16px;
+    cursor:pointer;
+}
