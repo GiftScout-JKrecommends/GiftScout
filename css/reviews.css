@@ -95,7 +95,38 @@ font-size:16px;
 .review-form textarea{
 resize:none;
 }
+.star-rating input{
+display:none;
+width:auto !important;
+margin:0 !important;
+padding:0 !important;
+}
 
+.star-rating{
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:row-reverse;
+gap:8px;
+}
+
+.star-rating label{
+display:inline-block !important;
+font-size:42px;
+cursor:pointer;
+color:#555;
+transition:.2s;
+margin:0 !important;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label{
+color:#ffb400;
+}
+
+.star-rating input:checked ~ label{
+color:#ffb400;
+}
 .rating-box{
     text-align:center;
     margin:20px 0 30px;
