@@ -21,10 +21,8 @@ I'd like personalized gift recommendations.
 👤 Name: ${name}
 🎁 Gift For: ${giftFor}
 🎉 Occasion: ${occasion}
-💰 Budget: ${budget}
-❤️ Interests: ${interests}
-
-Presented by JK Recommends`;
+💰 Budget: Rs. ${budget}
+❤️ Interests: ${interests}`;
 
         const url = `https://wa.me/917470713973?text=${encodeURIComponent(message)}`;
 
