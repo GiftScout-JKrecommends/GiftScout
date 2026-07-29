@@ -560,3 +560,41 @@ background:#ffa126;
     font-size:14px;
     color:#999;
 }
+.rating-box{
+    text-align:center;
+    margin:25px 0;
+}
+
+.rating-title{
+    color:#ffffff;
+    font-size:18px;
+    font-weight:600;
+    margin-bottom:15px;
+}
+
+.star-rating{
+    display:flex;
+    justify-content:center;
+    flex-direction:row-reverse;
+    gap:8px;
+}
+
+.star-rating input{
+    display:none;
+}
+
+.star-rating label{
+    font-size:42px;
+    color:#555;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label{
+    color:#ffb400;
+}
+
+.star-rating input:checked ~ label{
+    color:#ffb400;
+}
