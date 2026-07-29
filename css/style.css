@@ -409,6 +409,60 @@ Contact
     margin:12px 0;
     font-size:18px;
 }
+.contact-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+    margin-top:50px;
+}
+
+.contact-card{
+    background:#171717;
+    border:1px solid rgba(255,136,0,.25);
+    border-radius:20px;
+    padding:30px 20px;
+    min-height:320px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    align-items:center;
+
+    text-align:center;
+
+    box-shadow:0 12px 30px rgba(255,136,0,.08);
+    transition:.3s;
+}
+
+.contact-card:hover{
+    transform:translateY(-8px);
+    border-color:#ff8800;
+}
+
+.contact-card .icon{
+    font-size:48px;
+    color:#25D366;
+    margin-bottom:15px;
+}
+
+.contact-card:nth-child(2) .icon{
+    color:#ff8800;
+}
+
+.contact-card:nth-child(3) .icon{
+    color:#E4405F;
+}
+
+.contact-card h3{
+    color:#ff8800;
+    margin-bottom:10px;
+}
+
+.contact-card p{
+    color:#ddd;
+    margin-bottom:20px;
+    word-break:break-word;
+}
 
 /* ===========================
 Footer
