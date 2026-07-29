@@ -411,10 +411,11 @@ Contact
 }
 .contact-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
     gap:30px;
     max-width:1100px;
     margin:50px auto;
+    align-items:stretch;
 }
 
 .contact-card{
@@ -428,11 +429,9 @@ Contact
     flex-direction:column;
     justify-content:center;
     align-items:center;
-
     text-align:center;
 
     box-shadow:0 12px 30px rgba(255,136,0,.08);
-    transition:.3s;
 }
 
 .contact-card:hover{
