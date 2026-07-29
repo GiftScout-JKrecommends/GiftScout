@@ -91,8 +91,8 @@ form.addEventListener("submit", async (e) => {
 
         });
 
-        alert("🎉 Thank you! Your review has been submitted successfully.\n\nIt will be published after approval by Team GiftScout.");
-
+        document.getElementById("successModal").style.display = "flex";
+        
         form.reset();
 
         loadReviews();
