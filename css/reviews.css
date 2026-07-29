@@ -96,14 +96,45 @@ font-size:16px;
 resize:none;
 }
 
-.stars{
-margin-bottom:20px;
+.rating-box{
+    text-align:center;
+    margin:20px 0 30px;
 }
 
-.stars label{
-display:block;
-margin-bottom:10px;
-cursor:pointer;
+.rating-title{
+    font-size:18px;
+    margin-bottom:15px;
+    color:#fff;
+    font-weight:bold;
+}
+
+.star-rating{
+    display:flex;
+    flex-direction:row-reverse;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+}
+
+.star-rating input{
+    display:none;
+}
+
+.star-rating label{
+    font-size:42px;
+    color:#555;
+    cursor:pointer;
+    transition:.2s;
+    display:inline-block;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label{
+    color:#ffb400;
+}
+
+.star-rating input:checked ~ label{
+    color:#ffb400;
 }
 
 button{
