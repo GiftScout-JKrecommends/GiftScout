@@ -176,10 +176,11 @@ Gift Date
 </label>
 
 <input
-    type="date"
+    type="text"
     id="giftDate"
-    name="giftDate"
-    aria-label="Gift Date"
+    placeholder="Gift Date"
+    onfocus="this.type='date'"
+    onblur="if(!this.value)this.type='text'"
     required>
 
 <button type="submit">
