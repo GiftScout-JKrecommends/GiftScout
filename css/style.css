@@ -343,9 +343,10 @@ margin-bottom:15px;
 }
 
 .card p{
-
-color:#ddd;
-
+    color:#ddd;
+    font-size:22px;
+    font-weight:600;
+    line-height:1.5;
 }
 /* ===========================
 Gift Recommendation Form
