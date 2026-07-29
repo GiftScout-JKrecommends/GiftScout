@@ -7,31 +7,38 @@ import {
 
 async function loadHomeReviews() {
 
-  const rating = document.getElementById("homeRating");
-  const reviewCount = document.getElementById("homeReviewCount");
+  try {
 
-  const snapshot = await getDocs(collection(db, "reviews"));
+    const rating = document.getElementById("homeRating");
+    const reviewCount = document.getElementById("homeReviewCount");
 
-  let totalRating = 0;
-  let count = 0;
+    const snapshot = await getDocs(collection(db, "reviews"));
 
-  snapshot.forEach((doc) => {
-    const review = doc.data();
+    console.log("Documents:", snapshot.size);
 
-    if (!review.approved) return;
+    let totalRating = 0;
+    let count = 0;
 
-    totalRating += Number(review.rating);
-    count++;
-  });
+    snapshot.forEach((doc) => {
+      const review = doc.data();
+      console.log(review);
 
-  if (count === 0) {
-    rating.textContent = "5.0";
-    reviewCount.textContent = "0";
-    return;
+      if (review.approved === true) {
+        totalRating += Number(review.rating);
+        count++;
+      }
+    });
+
+    reviewCount.textContent = count;
+    rating.textContent = count > 0
+      ? (totalRating / count).toFixed(1)
+      : "5.0";
+
+  } catch (error) {
+    console.error("Home Reviews Error:", error);
+    alert(error.message);
   }
 
-  rating.textContent = (totalRating / count).toFixed(1);
-  reviewCount.textContent = count;
 }
 
 loadHomeReviews();
