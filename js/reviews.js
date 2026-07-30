@@ -12,6 +12,8 @@ const reviewsContainer = document.getElementById("reviewsContainer");
 const averageRating = document.getElementById("averageRating");
 const totalReviews = document.getElementById("totalReviews");
 
+document.getElementById("successModal").style.display = "none";
+
 // Load Approved Reviews
 async function loadReviews() {
 
