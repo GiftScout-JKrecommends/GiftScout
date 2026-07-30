@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GiftScout Reviews</title>
+
+    <link rel="stylesheet" href="css/reviews.css">
+    <script type="module" src="js/reviews.js"></script>
+</head>
+
 <body>
 
 <header class="hero">
@@ -16,27 +25,18 @@ Trusted by customers across India for thoughtful, personalized gift recommendati
 <div class="stats">
 
 <div class="stat-card">
-
 <h2 id="averageRating">⭐ 5.0</h2>
-
 <span>Average Rating</span>
-
 </div>
 
 <div class="stat-card">
-
 <h2 id="totalReviews">0</h2>
-
 <span>Happy Customers</span>
-
 </div>
 
 <div class="stat-card">
-
 <h2>100%</h2>
-
 <span>Personalized Recommendations</span>
-
 </div>
 
 </div>
@@ -49,62 +49,39 @@ Trusted by customers across India for thoughtful, personalized gift recommendati
 
 <form id="reviewForm">
 
-<input
-type="text"
-id="name"
-placeholder="Your Name"
-required>
+<input type="text" id="name" placeholder="Your Name" required>
 
 <select id="occasion">
-
 <option>Birthday</option>
-
 <option>Anniversary</option>
-
 <option>Wedding</option>
-
 <option>New Job</option>
-
 <option>Festival</option>
-
 <option>Baby Shower</option>
-
 <option>Other</option>
-
 </select>
 
 <div class="rating-box">
+<p class="rating-title">Rate Your Experience</p>
 
-    <p class="rating-title">Rate Your Experience</p>
-
-    <div class="star-rating">
+<div class="star-rating">
 <input type="radio" id="star5" name="rating" value="5" checked><label for="star5">★</label>
 <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
 <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
 <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
 <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
-    </div>
+</div>
 
 </div>
-<textarea
-id="review"
-rows="5"
-placeholder="Share your experience..."
-required></textarea>
+
+<textarea id="review" rows="5" placeholder="Share your experience..." required></textarea>
 
 <label>
-
 <input type="checkbox" required>
-
 I agree to display my review publicly.
-
 </label>
 
-<button type="submit">
-
-Submit Review
-
-</button>
+<button type="submit">Submit Review</button>
 
 </form>
 
@@ -115,23 +92,13 @@ Submit Review
 <h2>What Our Customers Say ❤️</h2>
 
 <div id="reviewsContainer">
-
 Loading Reviews...
-
 </div>
 
 </section>
 
 <footer>
-
-<p>
-
-© 2026 GiftScout • Presented by JK Recommends
-
-</p>
-
-<footer>
-    <p>© 2026 GiftScout • Presented by JK Recommends</p>
+<p>© 2026 GiftScout • Presented by JK Recommends</p>
 </footer>
 
 <div id="successModal" class="modal">
@@ -145,8 +112,4 @@ Loading Reviews...
 </div>
 
 </body>
-</html>
-
-</body>
-
 </html>
