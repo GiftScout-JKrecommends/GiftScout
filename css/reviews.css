@@ -277,3 +277,45 @@ margin:0;
 accent-color:#ff8800;
 cursor:pointer;
 }
+/* Success Modal */
+
+.modal{
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-content{
+    background: #151515;
+    color: #fff;
+    padding: 30px;
+    border-radius: 16px;
+    text-align: center;
+    width: 90%;
+    max-width: 420px;
+    border: 1px solid #ff8800;
+}
+
+.modal-content h2{
+    margin-bottom: 15px;
+}
+
+.modal-content p{
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+.modal-content button{
+    margin-top: 20px;
+    background: #ff8800;
+    color: #fff;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 16px;
+}
