@@ -35,12 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 );
 
-alert("HTTP Status: " + response.status);
-
-const text = await response.text();
-alert(text);
-
-const data = JSON.parse(text);
+const data = await response.json();
 
       if (!data.success) {
         alert("Unable to create payment order.");
