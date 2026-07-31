@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  alert("Script loaded!");
   const form = document.getElementById("giftForm");
 
   if (!form) return;
