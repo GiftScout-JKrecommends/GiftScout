@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const options = {
-        key: data.order.key || "YOUR_RAZORPAY_KEY_ID",
+        key: data.order.key || "rzp_live_TJcmFVZ4DzB5qI",
         amount: data.order.amount,
         currency: data.order.currency,
         name: "GiftScout",
