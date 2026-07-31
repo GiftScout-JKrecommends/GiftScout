@@ -1,73 +1,93 @@
 document.addEventListener("DOMContentLoaded", () => {
-          const form = document.getElementById("giftForm");
+  const form = document.getElementById("giftForm");
 
-            if (!form) return;
+  if (!form) return;
 
-              form.addEventListener("submit", async (e) => {
-                  e.preventDefault();
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-                      const name = form.querySelector('input[placeholder="Your Name"]').value;
-                          const giftFor = form.querySelector('input[placeholder="Gift For"]').value;
-                              const occasion = form.querySelector('input[placeholder="Occasion"]').value;
-                                  const budget = form.querySelector('input[placeholder="Budget"]').value;
-                                      const interests = form.querySelector("textarea").value;
+    const name = form.querySelector('input[placeholder="Your Name"]').value.trim();
+    const giftFor = form.querySelector('input[placeholder="Gift For"]').value.trim();
+    const occasion = form.querySelector('input[placeholder="Occasion"]').value.trim();
+    const budget = Number(
+      form.querySelector('input[placeholder="Budget"]').value
+    );
+    const interests = form.querySelector("textarea").value.trim();
 
-                                          try {
-                                                const response = await fetch("https://createorder-jyq6dpob2q-uc.a.run.app", {
-                                                        method: "POST",
-                                                                headers: {
-                                                                          "Content-Type": "application/json"
-                                                                                  },
-                                                                                          body: JSON.stringify({
-                                                                                                    amount: 19900
-                                                                                                            })
-                                                                                                                  });
+    // Calculate GiftScout fee
+    let fee = Math.round(budget * 0.10);
 
-                                                                                                                        const data = await response.json();
+    if (fee < 10) fee = 10;
+    if (fee > 999) fee = 999;
 
-                                                                                                                              if (!data.success) {
-                                                                                                                                      alert("Unable to create payment order.");
-                                                                                                                                              return;
-                                                                                                                                                    }
+    try {
+      const response = await fetch(
+        "https://createorder-jyq6dpob2q-uc.a.run.app",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            amount: fee * 100,
+            receipt: `gift_${Date.now()}`,
+          }),
+        }
+      );
 
-                                                                                                                                                          const options = {
-                                                                                                                                                                  key: data.key,
-                                                                                                                                                                          amount: data.order.amount,
-                                                                                                                                                                                  currency: data.order.currency,
-                                                                                                                                                                                          name: "GiftScout",
-                                                                                                                                                                                                  description: "Personalized Gift Recommendation",
-                                                                                                                                                                                                          order_id: data.order.id,
+      const data = await response.json();
 
-                                                                                                                                                                                                                  handler: function () {
+      if (!data.success) {
+        alert("Unable to create payment order.");
+        return;
+      }
 
-                                                                                                                                                                                                                            const message =
-                                                                                                                                                                                                                            `🎁 Hi GiftScout!
+      const options = {
+        key: data.key,
+        amount: data.order.amount,
+        currency: data.order.currency,
+        name: "GiftScout",
+        description: "Personalized Gift Recommendation",
+        order_id: data.order.id,
 
-                                                                                                                                                                                                                            I'd like personalized gift recommendations.
+        prefill: {
+          name: name,
+        },
 
-                                                                                                                                                                                                                            👤 Name: ${name}
-                                                                                                                                                                                                                            🎁 Gift For: ${giftFor}
-                                                                                                                                                                                                                            🎉 Occasion: ${occasion}
-                                                                                                                                                                                                                            💰 Budget: Rs. ${budget}
-                                                                                                                                                                                                                            ❤️ Interests: ${interests}`;
+        theme: {
+          color: "#6C63FF",
+        },
 
-                                                                                                                                                                                                                                      window.location.href =
-                                                                                                                                                                                                                                                  `https://wa.me/917470713973?text=${encodeURIComponent(message)}`;
-                                                                                                                                                                                                                                                          },
+        handler: function () {
+          const message = `🎁 Hi GiftScout!
 
-                                                                                                                                                                                                                                                                  theme: {
-                                                                                                                                                                                                                                                                            color: "#6C63FF"
-                                                                                                                                                                                                                                                                                    }
-                                                                                                                                                                                                                                                                                          };
+I'd like personalized gift recommendations.
 
-                                                                                                                                                                                                                                                                                                const rzp = new Razorpay(options);
-                                                                                                                                                                                                                                                                                                      rzp.open();
+👤 Name: ${name}
+🎁 Gift For: ${giftFor}
+🎉 Occasion: ${occasion}
+💰 Budget: ₹${budget}
+💳 Paid: ₹${fee}
+❤️ Interests: ${interests}`;
 
-                                                                                                                                                                                                                                                                                                          } catch (err) {
-                                                                                                                                                                                                                                                                                                                console.error(err);
-                                                                                                                                                                                                                                                                                                                      alert("Something went wrong.");
-                                                                                                                                                                                                                                                                                                                          }
-                                                                                                                                                                                                                                                                                                                            });
-                                                                                                                                                                                                                                                                                                                            });
+          window.location.href =
+            `https://wa.me/917470713973?text=${encodeURIComponent(message)}`;
+        },
+      };
 
-})
+      const rzp = new Razorpay(options);
+
+      rzp.on("payment.failed", function (response) {
+        alert(
+          "Payment failed.\n\nReason: " +
+            response.error.description
+        );
+      });
+
+      rzp.open();
+    } catch (err) {
+      console.error(err);
+      alert("Something went wrong. Please try again.");
+    }
+  });
+});
