@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                                                                                                                                     }
 
                                                                                                                                                           const options = {
-                                                                                                                                                                  key: data.key
+                                                                                                                                                                  key: data.key,
                                                                                                                                                                           amount: data.order.amount,
                                                                                                                                                                                   currency: data.order.currency,
                                                                                                                                                                                           name: "GiftScout",
@@ -69,5 +69,5 @@ document.addEventListener("DOMContentLoaded", () => {
                                                                                                                                                                                                                                                                                                                           }
                                                                                                                                                                                                                                                                                                                             });
                                                                                                                                                                                                                                                                                                                             });
-                                                                                                                                                                                                                                                                                                                            
+
 })
