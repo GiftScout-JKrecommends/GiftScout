@@ -23,20 +23,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       const response = await fetch(
-        "https://createorder-jyq6dpob2q-uc.a.run.app",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            amount: fee * 100,
-            receipt: `gift_${Date.now()}`,
-          }),
-        }
-      );
+  "https://createorder-jyq6dpob2q-uc.a.run.app",
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      amount: fee * 100,
+      receipt: `gift_${Date.now()}`,
+    }),
+  }
+);
 
-      const data = await response.json();
+alert("HTTP Status: " + response.status);
+
+const text = await response.text();
+alert(text);
+
+const data = JSON.parse(text);
 
       if (!data.success) {
         alert("Unable to create payment order.");
